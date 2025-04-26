@@ -1,3 +1,5 @@
+import { ArrowDown } from "lucide-react";
+
 export function Card() {
   return (
     <div className="card bg-primary text-primary-content justify-center items-center flex h-7/10 w-9/10">
@@ -29,7 +31,9 @@ export function Card() {
             <div className="absolute w-full h-px bg-gray-300"></div>
 
             {/* Button */}
-            <button className="btn w-15 h-15 rounded-full bg-primary z-10"></button>
+            <button className="btn w-15 h-15 rounded-full bg-primary z-1 flex justify-center items-center">
+              <ArrowDown className="scale-125" />
+            </button>
           </div>
         </form>
       </div>
