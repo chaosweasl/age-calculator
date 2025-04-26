@@ -2,14 +2,18 @@ import { useState, FormEvent, ChangeEvent } from "react";
 import { ArrowDown } from "lucide-react";
 import { DateTime } from "luxon";
 
-export function Card() {
+type CardProps = {
+  error: string;
+  setError: (error: string) => void;
+};
+
+export function Card({ error, setError }: CardProps) {
   const [day, setDay] = useState<number | "">("");
   const [month, setMonth] = useState<number | "">("");
   const [year, setYear] = useState<number | "">("");
   const [ageYears, setAgeYears] = useState<number | null>(null);
   const [ageMonths, setAgeMonths] = useState<number | null>(null);
   const [ageDays, setAgeDays] = useState<number | null>(null);
-  const [error, setError] = useState<string>("");
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -53,7 +57,7 @@ export function Card() {
   };
 
   return (
-    <div className="card bg-primary text-primary-content justify-center items-center flex h-6/10 w-9/10">
+    <div className="card bg-primary text-primary-content justify-center items-center flex h-1/2 w-9/10">
       <div className="card-body">
         <h1 className="card-title text-3xl sm:text-4xl justify-center items-center mb-5 font-extrabold">
           Age Calculator
@@ -111,30 +115,26 @@ export function Card() {
         </form>
 
         <div className="mt-5 mb-5 h-full flex flex-col justify-start items-start text-center">
-          {error && <p className="text-red-400">{error}</p>}
-
-          {!error && ageYears !== null && (
-            <div className="text-left flex flex-col gap-5">
-              <p className="text-5xl font-bold flex flex-row gap-3">
-                {ageYears}{" "}
-                <span className="text-primary-content/50 text-3xl flex justify-start items-center">
-                  years
-                </span>
-              </p>
-              <p className="text-5xl font-bold flex flex-row gap-3">
-                {ageMonths}{" "}
-                <span className="text-primary-content/50 text-3xl flex justify-start items-center">
-                  months
-                </span>
-              </p>
-              <p className="text-5xl font-bold flex flex-row gap-3">
-                {ageDays}{" "}
-                <span className="text-primary-content/50 text-3xl flex justify-start items-center">
-                  days
-                </span>
-              </p>
-            </div>
-          )}
+          <div className="text-left flex flex-col gap-5">
+            <p className="text-6xl font-bold flex flex-row gap-3">
+              {ageYears !== null && error == "" ? ageYears : "--"}{" "}
+              <span className="text-primary-content/50 text-5xl flex justify-start items-center">
+                years
+              </span>
+            </p>
+            <p className="text-6xl font-bold flex flex-row gap-3">
+              {ageMonths !== null && error == "" ? ageMonths : "--"}{" "}
+              <span className="text-primary-content/50 text-5xl flex justify-start items-center">
+                months
+              </span>
+            </p>
+            <p className="text-6xl font-bold flex flex-row gap-3">
+              {ageDays !== null && error == "" ? ageDays : "--"}{" "}
+              <span className="text-primary-content/50 text-5xl flex justify-start items-center">
+                days
+              </span>
+            </p>
+          </div>
         </div>
       </div>
     </div>
