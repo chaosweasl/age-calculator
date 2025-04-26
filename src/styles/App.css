@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap");
+@import "tailwindcss";
+@plugin "daisyui";
+
+@theme {
+  --font-montserrat: "Montserrat", sans-serif;
+}
+
+.body {
+  overflow: hidden;
+}
+
+.card {
+  @apply rounded-3xl;
+  border-bottom-right-radius: 6em;
+}
+
+:root {
+  @apply font-montserrat;
+}
