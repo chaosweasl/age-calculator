@@ -57,18 +57,16 @@ export function Card({ error, setError }: CardProps) {
   };
 
   return (
-    <div className="card bg-primary text-primary-content justify-center items-center flex h-1/2 w-9/10">
+    <div className="card bg-primary text-primary-content justify-center items-center flex h-1/2 w-9/10 sm:w-xl lg:w-3xl">
       <div className="card-body">
-        <h1 className="card-title text-3xl sm:text-4xl justify-center items-center mb-5 font-extrabold">
+        <h1 className="card-title text-4xl sm:text-6xl justify-center items-center mb-5 font-extrabold">
           Age Calculator
         </h1>
 
         <form onSubmit={handleSubmit}>
-          <div className="flex flex-row gap-5">
+          <div className="flex flex-row gap-5 font-semibold text-primary-content/50 text-xl sm:text-2xl">
             <div className="flex flex-col gap-2">
-              <h2 className="font-semibold text-primary-content/50 text-lg flex justify-center items-center">
-                DAY
-              </h2>
+              <h2 className="flex justify-center items-center">DAY</h2>
               <input
                 type="number"
                 className="input w-full bg-transparent text-lg border-primary-content"
@@ -78,9 +76,7 @@ export function Card({ error, setError }: CardProps) {
               />
             </div>
             <div className="flex flex-col gap-2">
-              <h2 className="font-semibold text-primary-content/50 text-lg flex justify-center items-center">
-                MONTH
-              </h2>
+              <h2 className="flex justify-center items-center">MONTH</h2>
               <input
                 type="number"
                 className="input w-full bg-transparent text-lg border-primary-content"
@@ -90,9 +86,7 @@ export function Card({ error, setError }: CardProps) {
               />
             </div>
             <div className="flex flex-col gap-2">
-              <h2 className="font-semibold text-primary-content/50 text-lg flex justify-center items-center">
-                YEAR
-              </h2>
+              <h2 className="flex justify-center items-center">YEAR</h2>
               <input
                 type="number"
                 className="input w-full bg-transparent text-lg border-primary-content"
@@ -114,8 +108,8 @@ export function Card({ error, setError }: CardProps) {
           </div>
         </form>
 
-        <div className="mt-5 mb-5 h-full flex flex-col justify-start items-start text-center">
-          <div className="text-left flex flex-col gap-5">
+        <div className="mt-5 mb-5 h-full flex flex-col justify-start items-start">
+          <div className="flex flex-col gap-5">
             <p className="text-6xl font-bold flex flex-row gap-3">
               {ageYears !== null && error == "" ? ageYears : "--"}{" "}
               <span className="text-primary-content/50 text-5xl flex justify-start items-center">
